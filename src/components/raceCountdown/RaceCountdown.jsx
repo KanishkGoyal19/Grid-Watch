@@ -79,32 +79,35 @@ const RaceCountdown = ({ races }) => {
   if (!nextEvent) return <div className="text-white text-center">Loading race countdown...</div>;
 
   return (
-    <div className="flex items-center justify-between bg-black text-white rounded-xl p-4 w-fit shadow-lg">
-      <div className="flex flex-col text-center mr-4">
-        <div className="text-xs tracking-wider text-gray-400 uppercase font-semibold mb-2">
-          GRAND PRIX WEEKEND
+    <div className="bg-black text-white rounded-xl p-6 shadow-lg border border-gray-700">
+      <div className="text-center mb-4">
+        <div className="text-sm tracking-wider text-gray-400 uppercase font-semibold mb-1">
+          {nextEvent.label.toUpperCase()}
         </div>
-        <div className="flex space-x-4">
-          {[
-            { label: 'DAYS', value: timeParts.days },
-            { label: 'HRS', value: timeParts.hours },
-            { label: 'MINS', value: timeParts.minutes },
-            { label: 'SECS', value: timeParts.seconds }
-          ].map(({ label, value }) => (
-            <div key={label} className="flex flex-col items-center">
-              <div className="text-3xl font-extrabold tabular-nums">{String(value).padStart(2, '0')}</div>
-              <div className="text-xs mt-1 text-gray-400">{label}</div>
-            </div>
-          ))}
+        <h3 className="text-lg font-semibold">{nextEvent.raceName}</h3>
+      </div>
+      <div className="flex items-center justify-around">
+        {[
+          { label: 'DAYS', value: timeParts.days },
+          { label: 'HRS', value: timeParts.hours },
+          { label: 'MINS', value: timeParts.minutes },
+          { label: 'SECS', value: timeParts.seconds }
+        ].map(({ label, value }) => (
+          <div key={label} className="flex flex-col items-center">
+            <div className="text-2xl font-extrabold tabular-nums">{String(value).padStart(2, '0')}</div>
+            <div className="text-xs mt-1 text-gray-400">{label}</div>
+          </div>
+        ))}
+        <div className="ml-4">
+          <Image
+            src="/logo.jpg" // adjust path as needed
+            alt="Race Watch"
+            width={50}
+            height={50}
+            className="rounded-full border border-gray-700"
+          />
         </div>
       </div>
-      <Image
-        src="/logo.jpg" // adjust path as needed
-        alt="Race Watch"
-        width={64}
-        height={64}
-        className="rounded-full border border-gray-700"
-      />
     </div>
   );
 };
