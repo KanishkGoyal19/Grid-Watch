@@ -1,140 +1,135 @@
-// src/components/Navbar.jsx
 'use client';
-import Link from 'next/link';
-import { useState } from 'react';
-import { Geist } from 'next/font/google';
 
-const geistSans = Geist({
-  subsets: ['latin'],
-});
+import { useState } from 'react';
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <nav className="bg-white text-white py-4 sticky top-0 z-50">
-      <div className="container mx-auto px-6 flex items-center justify-between">
-        {/* Logo / Home Link (Left) */}
-        <Link href="/" className={`text-xl font-bold text-black ${geistSans.className}`}>
-          GridWatch
-        </Link>
+    <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
+          <img
+            src="logo.jpg"
+            className="h-8"
+            alt="Flowbite Logo"
+          />
+          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            Grid Watch
+          </span>
+        </a>
 
-        {/* Desktop Menu (Center) */}
-        <div className="hidden md:flex space-x-8 flex-grow justify-center">
-          <Link href="/" className={`hover:text-gray-500 text-black ${geistSans.className}`}>
-            Home
-          </Link>
-          <div className="relative group">
-            <Link href="/stats" className={`hover:text-gray-500 text-black ${geistSans.className}`}>
-              Stats
-            </Link>
-            <div className="absolute hidden group-hover:block bg-gray-100 shadow-lg rounded-md py-2 mt-2 w-32 z-10">
-              <Link
-                href="/stats/drivers"
-                className={`block px-4 py-2 text-sm hover:bg-gray-200 text-gray-800 ${geistSans.className}`}
-              >
-                Drivers
-              </Link>
-              <Link
-                href="/stats/constructors"
-                className={`block px-4 py-2 text-sm hover:bg-gray-200 text-gray-800 ${geistSans.className}`}
-              >
-                Constructors
-              </Link>
-              <Link
-                href="/stats/circuits"
-                className={`block px-4 py-2 text-sm hover:bg-gray-200 text-gray-800 ${geistSans.className}`}
-              >
-                Circuits
-              </Link>
-            </div>
-          </div>
-          <Link href="/predictions" className={`hover:text-gray-500 text-black ${geistSans.className}`}>
-            Prediction Game
-          </Link>
-          {/* Add more links here in the center */}
-        </div>
-
-        {/* Mobile Menu Button (Right on small screens) */}
-        <div className="md:hidden">
-          <button onClick={toggleMenu} className="focus:outline-none">
-            <svg
-              className="w-6 h-6 fill-current text-black"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {isMenuOpen ? (
-                <path
-                  fillRule="evenodd"
-                  clipRule="evenodd"
-                  d="M18.278 16.864a1 1 0 0 1-1.414 1.414l-4.829-4.828-4.828 4.828a1 1 0 0 1-1.414-1.414l4.828-4.829-4.828-4.828a1 1 0 0 1 1.414-1.414l4.829 4.828 4.828-4.828a1 1 0 0 1 1.414 1.414l-4.828 4.829z"
-                />
-              ) : (
-                <path
-                  fillRule="evenodd"
-                  d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2z"
-                />
-              )}
-            </svg>
-          </button>
-        </div>
-
-        {/* Empty div to balance the logo on the left (on desktop) */}
-        <div className="hidden md:block w-6 h-6"></div>
-      </div>
-
-      {/* Mobile Menu (Collapsed) */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-gray-100 py-2 px-6">
-          <Link href="/" className={`block py-2 hover:text-gray-500 text-gray-800 ${geistSans.className}`}>
-            Home
-          </Link>
-          <div className="py-2">
-            <Link
-              href="/stats"
-              className={`block py-2 hover:text-gray-500 text-gray-800 ${geistSans.className}`}
-              onClick={toggleMenu} // Close menu after navigating
-            >
-              Stats
-            </Link>
-            <div className="ml-4">
-              <Link
-                href="/stats/drivers"
-                className={`block py-2 text-sm hover:text-gray-500 text-gray-700 ${geistSans.className}`}
-                onClick={toggleMenu}
-              >
-                Drivers
-              </Link>
-              <Link
-                href="/stats/constructors"
-                className={`block py-2 text-sm hover:text-gray-500 text-gray-700 ${geistSans.className}`}
-                onClick={toggleMenu}
-              >
-                Constructors
-              </Link>
-              <Link
-                href="/stats/circuits"
-                className={`block py-2 text-sm hover:text-gray-500 text-gray-700 ${geistSans.className}`}
-                onClick={toggleMenu}
-              >
-                Circuits
-              </Link>
-            </div>
-          </div>
-          <Link
-            href="/predictions"
-            className={`block py-2 hover:text-gray-500 text-gray-800 ${geistSans.className}`}
-            onClick={toggleMenu}
+        <button
+          onClick={() => setDropdownOpen(!dropdownOpen)}
+          type="button"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-expanded={dropdownOpen}
+        >
+          <span className="sr-only">Open main menu</span>
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            viewBox="0 0 17 14"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            Prediction Game
-          </Link>
-          {/* Add more mobile links here */}
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+
+        <div
+          className={`${
+            dropdownOpen ? 'block' : 'hidden'
+          } w-full md:block md:w-auto`}
+        >
+          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <li>
+              <a
+                href="#"
+                className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+              >
+                Home
+              </a>
+            </li>
+
+            <li className="relative">
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+              >
+                Stats
+                <svg
+                  className="w-2.5 h-2.5 ms-2.5"
+                  fill="none"
+                  viewBox="0 0 10 6"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="m1 1 4 4 4-4"
+                  />
+                </svg>
+              </button>
+
+              {dropdownOpen && (
+                <div className="z-10 absolute mt-2 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
+                  <ul className="py-2 text-sm text-gray-700 dark:text-gray-400">
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Drivers
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Constructors
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#"
+                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      >
+                        Circuits
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </li>
+
+            <li>
+              <a
+                href="#"
+                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+              >
+                Prediction Game
+              </a>
+            </li>
+            <li>
+              <a
+                href="#"
+                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+              >
+                About
+              </a>
+            </li>
+          </ul>
         </div>
-      )}
+      </div>
     </nav>
   );
 };
