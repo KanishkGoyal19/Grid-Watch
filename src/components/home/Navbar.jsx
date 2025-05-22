@@ -6,15 +6,18 @@ const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
-    <nav className="bg-white border-gray-200 dark:bg-gray-900 dark:border-gray-700">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
+    <nav className="w-full sticky top-0 z-50 bg-[#0a0a0a] backdrop-blur-md shadow-md">
+
+      <div className="w-full grid grid-cols-3 items-center px-4">
+        <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse justify-self-start">
+
           <img
             src="logo.jpg"
             className="h-8"
             alt="Flowbite Logo"
           />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+          <span className="self-center text-3xl font-bold tracking-wide text-gray-900 dark:text-white">
+
             Grid Watch
           </span>
         </a>
@@ -42,29 +45,27 @@ const Navbar = () => {
           </svg>
         </button>
 
-        <div
-          className={`${
-            dropdownOpen ? 'block' : 'hidden'
-          } w-full md:block md:w-auto`}
-        >
-          <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+        <div className={`${dropdownOpen ? 'block' : 'hidden'} w-full md:block md:w-auto justify-self-center`}>
+
+          <ul className="flex flex-col md:flex-row items-center gap-6 font-semibold px-4 py-2 md:py-0 transition-all duration-200">
             <li>
               <a
-                href="#"
-                className="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+                href="/"
+                className="text-md md:text-lg px-4 py-2 font-medium text-gray-200 hover:text-[#e10600] transition duration-200 hover-underline"
               >
                 Home
               </a>
             </li>
 
-            <li className="relative">
+            <li className="hover-underline">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="flex items-center justify-between w-full py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 md:w-auto dark:text-white md:dark:hover:text-blue-500 dark:focus:text-white dark:border-gray-700 dark:hover:bg-gray-700 md:dark:hover:bg-transparent"
+                className="text-md md:text-lg px-4 py-2 font-medium text-gray-200 hover:text-[#e10600] transition duration-200 flex items-center gap-2 hover-underline"
               >
+
                 Stats
                 <svg
-                  className="w-2.5 h-2.5 ms-2.5"
+                  className="w-3 h-3"
                   fill="none"
                   viewBox="0 0 10 6"
                   xmlns="http://www.w3.org/2000/svg"
@@ -80,30 +81,30 @@ const Navbar = () => {
               </button>
 
               {dropdownOpen && (
-                <div className="z-10 absolute mt-2 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-gray-700 dark:divide-gray-600">
-                  <ul className="py-2 text-sm text-gray-700 dark:text-gray-400">
+                <div className="z-10 absolute mt-2 font-normal bg-white divide-y divide-gray-100 rounded-lg shadow-lg w-44 dark:bg-gray-700 dark:divide-gray-600">
+                  <ul className="py-2 text-sm text-gray-700 dark:text-gray-300">
                     <li>
                       <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        href="stats/drivers"
+                        className="text-md md:text-lg px-4 py-2 font-medium text-gray-200 hover:text-[#e10600] transition duration-200 hover-underline"
                       >
-                        Drivers
+                        Driver Stats
                       </a>
                     </li>
                     <li>
                       <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                      href="stats/constructors"
+                        className="text-md md:text-lg px-4 py-2 font-medium text-gray-200 hover:text-[#e10600] transition duration-200 hover-underline"
                       >
-                        Constructors
+                        Constructor Stats
                       </a>
                     </li>
                     <li>
                       <a
-                        href="#"
-                        className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                        href="stats/circuits"
+                        className="text-md md:text-lg px-4 py-2 font-medium text-gray-200 hover:text-[#e10600] transition duration-200 hover-underline"
                       >
-                        Circuits
+                        Circuit Stats
                       </a>
                     </li>
                   </ul>
@@ -113,21 +114,22 @@ const Navbar = () => {
 
             <li>
               <a
-                href="#"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                href="game"
+                className="text-md md:text-lg px-4 py-2 font-medium text-gray-200 hover:text-[#e10600] transition duration-200 hover-underline"
               >
                 Prediction Game
               </a>
             </li>
             <li>
               <a
-                href="#"
-                className="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
+                href="about"
+                className="text-md md:text-lg px-4 py-2 font-medium text-gray-200 hover:text-[#e10600] transition duration-200 hover-underline"
               >
                 About
               </a>
             </li>
           </ul>
+
         </div>
       </div>
     </nav>
