@@ -117,7 +117,7 @@ const DriversPage = () => {
         );
     }
 
-      if (error) {
+    if (error) {
         return (
             <main className="min-h-screen bg-black p-8">
                 <h1 className="text-white text-3xl font-bold mb-6">F1 Drivers</h1>
@@ -129,11 +129,24 @@ const DriversPage = () => {
     return (
         <main className="min-h-screen bg-black p-8">
             <h1 className="text-white text-3xl font-bold mb-6">F1 Drivers</h1>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
-                {sortedDrivers.map(driver => (
-                    <DriverCard key={driver.full_name} driver={driver} />
-                ))}
+            <div className="space-y-8">
+                {/* Top 3 Drivers in a 3-column grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    {sortedDrivers.slice(0, 3).map((driver) => (
+                        <DriverCard key={driver.full_name} driver={driver} />
+                    ))}
+                </div>
+
+                {/* Rest of the Drivers in a 4-column grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {sortedDrivers.slice(3).map((driver) => (
+                        <DriverCard key={driver.full_name} driver={driver} />
+                    ))}
+                </div>
             </div>
+
+
+
         </main>
     );
 };
