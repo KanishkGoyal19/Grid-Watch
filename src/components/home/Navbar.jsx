@@ -12,9 +12,9 @@ const Navbar = () => {
         <a href="/" className="flex items-center space-x-3 rtl:space-x-reverse justify-self-start">
 
           <img
-            src="logo.jpg"
+            src="/logo.jpg"
             className="h-8"
-            alt="Flowbite Logo"
+            alt="Grid Watch Logo"
           />
           <span className="self-center text-3xl font-bold tracking-wide text-gray-900 dark:text-white">
 
