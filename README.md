@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GridWatch 🏁
 
-## Getting Started
+**GridWatch** is a full-stack Formula 1 analytics and prediction platform designed to bring F1 enthusiasts closer to the sport through interactive statistics, community engagement, and predictive gameplay. Users can view up-to-date driver and constructor standings, explore detailed stats for races and circuits, and make predictions to earn points and compete on leaderboards.
 
-First, run the development server:
+> 🚧 This project is currently under active development. Features are being added on a rolling basis.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ✨Planned Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+* 📊 **Real-Time F1 Data**
+  Powered by the Jolpica F1 API, GridWatch delivers up-to-date information on drivers, teams, races, and circuits.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* 🔐 **User Authentication**
+  Secure sign-up and login system to allow personalized predictions and stat tracking.
 
-## Learn More
+* 🧠 **Prediction System**
+  Make predictions for pole positions, podium finishes, fastest laps, and more — earn points based on your accuracy.
 
-To learn more about Next.js, take a look at the following resources:
+* 🏆 **Leaderboards** 
+  Compete with others and track your progress over the season.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+* 📈 **Interactive Visualizations**
+  Explore F1 data through dynamic and responsive charts.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 🛠️ Tech Stack
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* **Frontend:** React, Next.js, Tailwind CSS
+* **Backend:** Node.js, MongoDB
+* **APIs:** Jolpica F1 API
+* **Authentication:** Clerk
+* **Hosting:** Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🚀 Roadmap
+
+* [x] Driver & constructor standings layout
+* [ ] Basic prediction input flow
+* [ ] Community discussion forum
+* [ ] Past race results + performance history
+* [ ] Mobile optimization
+* [ ] Admin tools for managing data overrides
+
+---
+
+## 📌 Notes
+
+* This project is still in progress. UI components, prediction logic, and performance metrics are being refined iteratively.
+* Feedback, suggestions, and contributions are always welcome.
