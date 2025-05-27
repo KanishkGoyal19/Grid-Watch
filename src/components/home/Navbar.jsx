@@ -85,7 +85,7 @@ const Navbar = () => {
                   <ul className="py-2 text-sm text-gray-700 dark:text-gray-300">
                     <li>
                       <a
-                        href="stats/drivers"
+                        href="/stats/drivers"
                         className="text-md md:text-lg px-4 py-2 font-medium text-gray-200 hover:text-[#e10600] transition duration-200 hover-underline"
                       >
                         Driver Stats
@@ -93,7 +93,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a
-                      href="stats/constructors"
+                      href="/stats/constructors"
                         className="text-md md:text-lg px-4 py-2 font-medium text-gray-200 hover:text-[#e10600] transition duration-200 hover-underline"
                       >
                         Constructor Stats
@@ -101,7 +101,7 @@ const Navbar = () => {
                     </li>
                     <li>
                       <a
-                        href="stats/circuits"
+                        href="/stats/circuits"
                         className="text-md md:text-lg px-4 py-2 font-medium text-gray-200 hover:text-[#e10600] transition duration-200 hover-underline"
                       >
                         Circuit Stats

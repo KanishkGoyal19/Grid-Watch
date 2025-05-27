@@ -100,7 +100,7 @@ const DriversPage = () => {
     // Sort drivers by their position in the standings
     const sortedDrivers = [...driversWithStandings].sort((a, b) => {
         const positionA = parseInt(a.position, 10);
-        const positionB = parseInt(b.position, 10);
+        const positionB = parseInt(b.position, 10);  //converts into integer using base 10
 
         if (isNaN(positionA)) return 1;
         if (isNaN(positionB)) return -1;
