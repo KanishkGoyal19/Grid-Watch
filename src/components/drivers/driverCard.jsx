@@ -10,7 +10,7 @@ const DriverCard = ({ driver }) => {
   let imageUrl = driver.imageSlug;
 
   if (driver.full_name === 'Franco COLAPINTO') {
-    imageUrl = 'https://media.formula1.com/image/upload/f_auto,c_limit,q_auto,w_1320/fom-website/drivers/2025Drivers/colapinto';
+    imageUrl = 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/F/FRACOL01_Franco_Colapinto/fracol01.png';
   }
     const isTopThree = driver.position <= 3;
 
