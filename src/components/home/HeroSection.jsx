@@ -1,5 +1,5 @@
 "use client";
-import RaceCountdownContainer from '../RaceCountdown/RaceCountdownContainer';
+import RaceCountdownContainer from '../raceCountdown/RaceCountdownContainer';
 
 export default function HeroSection() {
   return (
