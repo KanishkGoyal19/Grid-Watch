@@ -23,6 +23,7 @@ export default function HeroSection() {
       {/* Race Countdown Container */}
       <div className="relative z-10">
         <RaceCountdownContainer />
+        
       </div>
     </section>
   );

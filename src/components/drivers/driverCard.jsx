@@ -8,10 +8,6 @@ const DriverCard = ({ driver }) => {
   const isChampion = driver.full_name === currentChampion;
 
   let imageUrl = driver.imageSlug;
-
-  // if (driver.full_name === 'Franco COLAPINTO') {
-  //   imageUrl = 'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/F/FRACOL01_Franco_Colapinto/fracol01.png';
-  // }
     const isTopThree = driver.position <= 3;
 
     let cardClassName = "rounded-2xl p-4 shadow-lg flex items-start gap-4 w-full transition-transform hover:scale-105 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700";

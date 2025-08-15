@@ -12,14 +12,16 @@ function DraggableDriver({ driver }) {
 
   const style = {
     transform: transform ? `translate(${transform.x}px, ${transform.y}px)` : undefined,
-    border: '1px solid #ccc',
+    border: '1px solid #374151', // border-gray-700
     padding: '8px',
     margin: '4px',
-    borderRadius: '8px',
+    borderRadius: '16px', // rounded-2xl
     width: '120px',
-    backgroundColor: '#fff',
+    background: 'linear-gradient(to bottom right, #1f2937, #111827)', // from-gray-800 to-gray-900
     cursor: 'grab',
     textAlign: 'center',
+    color: '#fff', // text-white
+    boxShadow: '0 4px 14px 0 rgba(0,0,0,0.25)', // shadow-lg
   };
 
   return (
@@ -41,9 +43,8 @@ function DroppableSlot({ id, assignedDriver }) {
   return (
     <div
       ref={setNodeRef}
-      className={`w-32 h-32 border-2 rounded-lg flex items-center justify-center bg-gray-900 text-white ${
-        isOver ? 'border-green-500' : 'border-gray-600'
-      }`}
+      className={`w-32 h-32 border-2 rounded-lg flex items-center justify-center bg-gray-900 text-white ${isOver ? 'border-green-500' : 'border-gray-600'
+        }`}
     >
       {assignedDriver ? (
         <div className="text-center">
@@ -68,6 +69,9 @@ export default function PredictionDragDrop() {
     first: null,
     second: null,
     third: null,
+    fastestLap: null,
+    dnf1: null,
+    dnf2: null,
   });
 
   const handleDragEnd = (event) => {
@@ -81,24 +85,53 @@ export default function PredictionDragDrop() {
   if (loading) return <div className="text-white">Loading drivers...</div>;
 
   return (
-    <div className="p-8 bg-black min-h-screen text-white">
-      <h1 className="text-3xl font-bold mb-6">Predict the Podium</h1>
+    <div className="bg-black min-h-screen text-white flex flex-col">
+      <h1 className="text-3xl font-bold p-8">Race Predictions</h1>
 
       <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-        {/* Droppable Slots */}
-        <div className="flex gap-6 mb-10 justify-center">
-          <DroppableSlot id="first" assignedDriver={slots.first} />
-          <DroppableSlot id="second" assignedDriver={slots.second} />
-          <DroppableSlot id="third" assignedDriver={slots.third} />
+
+        {/* Scrollable prediction categories */}
+        <div className="flex-1 overflow-y-auto p-8 pb-40 space-y-10">
+
+          {/* Podium */}
+          <section>
+            <h2 className="text-xl font-semibold mb-4">Podium</h2>
+            <div className="flex gap-6">
+              <DroppableSlot id="first" assignedDriver={slots.first} />
+              <DroppableSlot id="second" assignedDriver={slots.second} />
+              <DroppableSlot id="third" assignedDriver={slots.third} />
+            </div>
+          </section>
+
+          {/* Fastest Lap */}
+          <section>
+            <h2 className="text-xl font-semibold mb-4">Fastest Lap</h2>
+            <DroppableSlot id="fastestLap" assignedDriver={slots.fastestLap} />
+          </section>
+
+          {/* DNF Predictions */}
+          <section>
+            <h2 className="text-xl font-semibold mb-4">DNF Predictions</h2>
+            <div className="flex gap-6">
+              <DroppableSlot id="dnf1" assignedDriver={slots.dnf1} />
+              <DroppableSlot id="dnf2" assignedDriver={slots.dnf2} />
+            </div>
+          </section>
+
         </div>
 
-        {/* Draggable Drivers */}
-        <div className="flex flex-wrap gap-4">
-          {drivers.map((driver) => (
-            <DraggableDriver key={driver.full_name} driver={driver} />
-          ))}
+        {/* Fixed Bottom Driver Pool */}
+        <div className="fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-700 p-4 max-h-48 overflow-y-auto">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
+            {drivers.map((driver) => (
+              <DraggableDriver key={driver.fucrell_name} driver={driver} />
+            ))}
+          </div>
         </div>
+
+
       </DndContext>
     </div>
   );
 }
+
